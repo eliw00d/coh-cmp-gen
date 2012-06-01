@@ -1,4 +1,3 @@
-coh-cmp-gen
-===========
-
 Company of Heroes: Community Model Project
+
+..\Company of Heroes\DataGeneric\
