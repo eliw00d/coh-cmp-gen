@@ -1,0 +1,96 @@
+MassProxyScale = 0.5
+MassProxyRange = 
+{
+	Max = 100,
+	Min = 1,
+}
+MetaRBodyCollection = 
+{
+	RB_tripod_leg02 = 
+	{
+		MassProxy = 20,
+		FrictionProxy = 40,
+		LinearDampingProxy = 10,
+		AngularDampingProxy = 1,
+		ParentBoneName = "tripod_leg02",
+		RestitutionProxy = 50,
+		CollisionDetectionShape = "chull",
+		MeshNameVec = 
+		{
+			"tripod_leg02",
+		},
+	},
+	RB_tripod_leg01 = 
+	{
+		MassProxy = 20,
+		FrictionProxy = 40,
+		LinearDampingProxy = 10,
+		AngularDampingProxy = 1,
+		ParentBoneName = "tripod_leg01",
+		RestitutionProxy = 50,
+		CollisionDetectionShape = "chull",
+		MeshNameVec = 
+		{
+			"tripod_leg01",
+		},
+	},
+	RB_tripod_leg03 = 
+	{
+		MassProxy = 20,
+		FrictionProxy = 40,
+		LinearDampingProxy = 10,
+		AngularDampingProxy = 1,
+		ParentBoneName = "tripod_leg03",
+		RestitutionProxy = 50,
+		CollisionDetectionShape = "chull",
+		MeshNameVec = 
+		{
+			"tripod_leg03",
+		},
+	},
+	RB_wreak_TOW_spine = 
+	{
+		MassProxy = 20,
+		FrictionProxy = 40,
+		LinearDampingProxy = 10,
+		AngularDampingProxy = 1,
+		ParentBoneName = "wreak_TOW_spine",
+		RestitutionProxy = 50,
+		CollisionDetectionShape = "chull",
+		MeshNameVec = 
+		{
+			"wreak_TOW_spine",
+		},
+	},
+	RB_wreak_TOW_launchtube01 = 
+	{
+		MassProxy = 40,
+		FrictionProxy = 40,
+		LinearDampingProxy = 10,
+		AngularDampingProxy = 1,
+		ParentBoneName = "wreak_TOW_launchtube01",
+		RestitutionProxy = 50,
+		CollisionDetectionShape = "chull",
+		MeshNameVec = 
+		{
+			"wreak_TOW_launchtube01",
+		},
+	},
+	RB_wreak_TOW_missilecylinder = 
+	{
+		MassProxy = 30,
+		FrictionProxy = 40,
+		LinearDampingProxy = 10,
+		AngularDampingProxy = 1,
+		ParentBoneName = "wreak_TOW_missilecylinder",
+		RestitutionProxy = 50,
+		CollisionDetectionShape = "chull",
+		MeshNameVec = 
+		{
+			"wreak_TOW_missilecylinder",
+		},
+	},
+}
+MetaConstraintCollection = 
+{
+}

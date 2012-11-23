@@ -1,0 +1,67 @@
+DefaultRig = "startup"
+MetaConstraintCollection =  
+{
+}
+MetaRBodyCollection =  
+{
+}
+MetaRigCollection =  
+{
+	TOW_orphan =  
+	{
+		ConstraintBodyPairArray =  
+		{
+		},
+		IsOrphanable = true,
+		MetaRBodyKeyArray =  
+		{
+			 
+			{
+				MotionType = "dynamicMotion",
+				NoCollisionGroup = "<none>",
+				RigidBodyName = "RB_tripod_leg02",
+			},
+			 
+			{
+				MotionType = "dynamicMotion",
+				NoCollisionGroup = "<none>",
+				RigidBodyName = "RB_wreak_TOW_spine",
+			},
+			 
+			{
+				MotionType = "dynamicMotion",
+				NoCollisionGroup = "<none>",
+				RigidBodyName = "RB_tripod_leg01",
+			},
+			 
+			{
+				MotionType = "dynamicMotion",
+				NoCollisionGroup = "<none>",
+				RigidBodyName = "RB_tripod_leg03",
+			},
+			 
+			{
+				MotionType = "dynamicMotion",
+				NoCollisionGroup = "<none>",
+				RigidBodyName = "RB_wreak_TOW_launchtube01",
+			},
+			 
+			{
+				MotionType = "dynamicMotion",
+				NoCollisionGroup = "<none>",
+				RigidBodyName = "RB_wreak_TOW_missilecylinder",
+			},
+		},
+	},
+	startup =  
+	{
+		ConstraintBodyPairArray =  
+		{
+		},
+		IsOrphanable = false,
+		MetaRBodyKeyArray =  
+		{
+		},
+	},
+}
+

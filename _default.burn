@@ -1,0 +1,658 @@
+burn_targets =
+{
+	{
+		name = [[shark container scripts]],
+		wildcard = [[.*\.(scn)$]],
+		targets =
+		{
+			{
+				target = [[bia_data]],
+				project = [[CMP]],
+				destination = [[CMP\Data]],
+				plugin = [[Sound Container Converter]],
+			},
+		}
+	},
+	{
+		name = [[generic-rgm to data-rgm]],
+		wildcard = [[.*\.(rgm)$]],
+		targets =
+		{
+			{
+				target = [[bia_data]],
+				project = [[CMP]],
+				destination = [[CMP\Data]],
+				plugin = [[generic-RGM to data-RGM]],
+			},
+			{
+				target = [[bia_data_high]],
+				project = [[CMP]],
+				destination = [[CMP\DataArtHigh]],
+				plugin = [[generic-RGM to data-RGM]],
+			},
+			{
+				target = [[bia_data_low]],
+				project = [[CMP]],
+				destination = [[CMP\DataArtLow]],
+				plugin = [[generic-RGM to data-RGM]],
+			},
+			{
+				target = [[bia_data_LuaGen]],
+				project = [[CMP]],
+				selectRelative = [[Art\Models]],
+				destination = [[CMP\Data\Attrib\EBPs]],
+				plugin = [[generic-RGM to data-LUA]],
+			}
+		}
+	},
+	{
+		name = [[generic-rga to data-rga]],
+		wildcard = [[.*\.(rga)$]],
+		targets =
+		{
+			{
+				target = [[bia_data]],
+				project = [[CMP]],
+				destination = [[CMP\Data]],
+				plugin = [[generic-RGA to data-RGA]],
+			},
+			{
+				target = [[bia_data_high]],
+				project = [[CMP]],
+				destination = [[CMP\DataArtHigh]],
+				plugin = [[generic-RGA to data-RGA]],
+			},
+			{
+				target = [[bia_data_low]],
+				project = [[CMP]],
+				destination = [[CMP\DataArtLow]],
+				plugin = [[generic-RGA to data-RGA]],
+			}
+		}
+	},
+	{
+		name = [[generic-rgo to data-rgo]],
+		wildcard = [[.*\.(rgo)$]],
+		targets =
+		{
+			{
+				target = [[bia_data]],
+				project = [[CMP]],
+				destination = [[CMP\Data]],
+				plugin = [[generic-RGO to data-RGO]],
+			},
+			{
+				target = [[bia_data_high]],
+				project = [[CMP]],
+				destination = [[CMP\DataArtHigh]],
+				plugin = [[generic-RGO to data-RGO]],
+			},
+			{
+				target = [[bia_data_low]],
+				project = [[CMP]],
+				destination = [[CMP\DataArtLow]],
+				plugin = [[generic-RGO to data-RGO]],
+			}
+		}
+	},
+	{
+		name = [[clone-rgm to data-rgm-rga-rgo]],
+		wildcard = [[.*\.(rgm_clone)$]],
+		targets =
+		{
+			{
+				target = [[rgm_bia_data]],
+				project = [[CMP]],
+				destination = [[CMP\Data]],
+				plugin = [[generic-RGM to data-RGM]],
+			},
+			{
+				target = [[rga_bia_data]],
+				project = [[CMP]],
+				destination = [[CMP\Data]],
+				plugin = [[generic-RGA to data-RGA]],
+			},
+			{
+				target = [[rgo_bia_data]],
+				project = [[CMP]],
+				destination = [[CMP\Data]],
+				plugin = [[generic-RGO to data-RGO]],
+			}
+		}
+	},
+	{	
+		name = [[Physics Meta Blue Print to Physics Blue Print]],
+		wildcard = [[.*\.(rpmb)$]],
+		targets =
+		{
+			{
+				target = [[bia_data]],
+				project = [[CMP]],
+				destination = [[CMP\Data]],
+				plugin = [[generic-RPMB to data-RPB]],
+			}
+		}
+	},
+	{
+		name = [[Splat specular textures]],
+		wildcard = [[art\\scenarios\\textures\\splats\\.*_(specular|normal)\.tga$]],
+		targets =
+		{
+			{
+				target = [[bia_SplatToRGT]],
+				project = [[CMP]],
+				destination = [[CMP\data]],
+				plugin = [[generic-image to data-rgt]],
+			}
+		}
+	},
+	{
+		name = [[Splat textures]],
+		-- NOTE: This MUST come after the "Splat specular textures ", since it eats the *_specular.tga files!
+		wildcard = [[art\\scenarios\\textures\\splats\\.*\.tga$]],
+
+		targets =
+		{
+			{
+				target = [[bia_SplatToRGT]],
+				project = [[CMP]],
+				destination = [[CMP\data]],
+				plugin = [[generic-image to data-rgt]],
+			},
+			{
+				target = [[bia_SplatTMM]],
+				project = [[CMP]],
+				destination = [[CMP\data]],
+				plugin = [[generic-image to data-TMM]],
+			}
+		}
+	},
+	{
+		name = [[Tile textures]],
+		wildcard = [[art\\scenarios\\textures\\tiles\\.*\.tga$]],
+
+		targets =
+		{
+			{
+				target = [[bia_SplatToRGT]],
+				project = [[CMP]],
+				destination = [[CMP\data]],
+				plugin = [[generic-image to data-rgt]],
+			}
+		}
+	},
+	{
+		name = [[generic-image to data-rgt]],
+		wildcard = [[((art\\models\\)).*\.(tga|bmp|dds)|((art\\FX\\)).*\.(tga|bmp|dds)|((art\\objectscars\\)).*\.(tga|bmp|dds)|((art\\Scenarios\\Textures\\water\\)).*\.(tga|bmp|dds)|((art\\NIS\\)).*\.(tga|bmp|dds)$]],
+		targets =
+		{
+			{
+				target = [[bia_Data]],
+				project = [[CMP]],
+				destination = [[CMP\Data]],
+				plugin = [[generic-image to data-rgt]],
+			}
+		}
+	},
+	{
+		name = [[UI Maps]],
+		wildcard = [[scenarios\\.*\.tga$]],
+		targets =
+		{
+			{
+				target = [[bia_Data]],
+				project = [[CMP]],
+				destination = [[CMP\Data]],
+				plugin = [[generic-image to data-rgt]],
+			}
+		}
+	},
+	{
+		name = [[UI Textures]],
+		wildcard = [[art\\ui\\.*\.tga$]],
+		targets =
+		{
+			{
+				target = [[bia_Data]],
+				project = [[CMP]],
+				destination = [[CMP\Data]],
+				plugin = [[generic-image to data-rgt]],
+			}
+		}
+	},
+	{
+		name = [[generic-bua to data-rgt]],
+		wildcard = [[art\\.*\.bua$]],
+		targets =
+		{
+			{
+				target = [[bia_Data]],
+				project = [[CMP]],
+				destination = [[CMP\Data]],
+				plugin = [[generic-bua to data-rgt]],
+			}
+		}
+	},
+	{
+		name = [[STC to LUA]],
+		wildcard = [[art\\.*\.stc$]],
+		targets =
+		{
+			{
+				target = [[bia_Data]],
+				project = [[CMP]],
+				destination = [[CMP\Data]],
+				plugin = [[STC to LUA]],
+			}
+		}
+	},
+	{
+		name = [[generic-fx to data-bfx]],
+		wildcard = [[((art\\fx\\)).*\.lua$]],
+		targets =
+		{
+			{
+				target = [[bia_Data]],
+				project = [[CMP]],
+				destination = [[CMP\Data]],
+				plugin = [[generic-FX LUA to data-BFX]],
+			},
+		}
+	},
+	{
+		name = [[wave converter]],
+		wildcard = [[Sound\\.*\.wav$]],
+		targets =
+		{
+			{
+				target = [[bia_data_high]],
+				project = [[CMP]],
+				destination = [[CMP\DataSoundHigh]],
+				plugin = [[Wave Converter]],
+			},
+			{
+				target = [[bia_data_low]],
+				project = [[CMP]],
+				destination = [[CMP\DataSoundLow]],
+				plugin = [[Wave Converter]],
+			},
+		}
+	},
+	{
+		name = [[everything else]],
+		wildcard = [[.*]],
+		targets =
+		{
+			{
+				target = [[bia_Data]],
+				project = [[CMP]],
+				destination = [[CMP\Data]],
+				plugin = [[copy]],
+			},
+		}
+	},
+}
+
+burn_params = 
+{
+	{
+		name = [[wave converter]],
+		targets =
+		{
+			{
+				target = [[bia_data_high]],
+				params =  
+				{
+					{ [[compression]], [[0]] },
+					{ [[sampleRate]], [[44100]] },
+				}
+			},
+			{
+				target = [[bia_data_low]],
+				params =  
+				{
+					{ [[compression]], [[0]] },
+					{ [[sampleRate]], [[22050]] },
+				}
+			}
+		}
+	},
+	
+	{
+		name = [[generic-rgm to data-rgm]],
+		targets =
+		{
+			{
+				target = [[bia_data]],
+				params =
+				{
+					{ [[generate_trianglemesh]], [[true]] },
+					{ [[generate_substanceRibbon]], [[false]] },
+					{ [[generate_mergemesh]], [[false]] },
+					{ [[merge_equivalent_materials]], [[false]] },
+					{ [[reorient_root]], [[false]] },
+					{ [[generate_destructibleBuilding]], [[false]] },
+					{ [[destructibleBuilding_vertexThresholdmm]], [[0]] },
+					{ [[destructibleBuilding_cubePack]], [[false]] },
+					{ 'compress_textures', '1' },
+					{ 'enable_alpha_compression', '1' },
+					{ 'preferred_format', '0' },
+					{ 'rescale_np2', '0' },
+					{ 'want_mipmaps', '0' },
+					{ 'tex_width', '-1' }, -- -1 is doesnt care
+					{ 'tex_height', '-1' },	
+					{ 'tex_sharpen', '0' },
+					{ 'rgm_format', '0' },	-- 0 pc,1 xenon
+					{ 'anim_compression', '2' },  -- bwd compat: anim compression should now occur on rga files
+					{ 'anim_compression_default_tolerance', '3' },  -- bwd compat: anim compression should now occur on rga files
+					{ 'quick_compression', '0' },
+					{ [[compress_vertex_directions]], [[true]] },
+					{ [[compress_vertex_texcoord2D]], [[true]] },
+					{ [[compress_vertex_texcoord2D_clampTol]], [[.02]] },
+					{ [[vertex_cache_optimization]], [[1]] },
+				}
+			},
+			{
+				target = [[bia_data_low]],
+				params =
+				{
+					{ [[generate_trianglemesh]], [[true]] },
+					{ [[generate_substanceRibbon]], [[false]] },
+					{ [[generate_mergemesh]], [[false]] },
+					{ [[merge_equivalent_materials]], [[false]] },
+					{ [[reorient_root]], [[false]] },
+					{ [[generate_destructibleBuilding]], [[false]] },
+					{ [[destructibleBuilding_vertexThresholdmm]], [[0]] },
+					{ [[destructibleBuilding_cubePack]], [[false]] },
+					{ 'compress_textures', '1' },
+					{ 'enable_alpha_compression', '1' },
+					{ 'preferred_format', '0' },
+					{ 'rescale_np2', '0' },
+					{ 'want_mipmaps', '0' },
+					{ 'tex_width', '-1' }, -- -1 is doesnt care
+					{ 'tex_height', '-1' },	
+					{ 'tex_sharpen', '0' },
+					{ 'rgm_format', '0' },	-- 0 pc,1 xenon
+					{ 'anim_compression', '2' },  -- bwd compat: anim compression should now occur on rga files
+					{ 'anim_compression_default_tolerance', '3' },  -- bwd compat: anim compression should now occur on rga files
+					{ 'quick_compression', '0' },
+					{ [[strip_unused_vertex_component_data]], [[true]] }, -- strip tangent/binormal and all unused data from the meshes
+					{ [[compress_vertex_directions]], [[true]] },
+					{ [[compress_vertex_texcoord2D]], [[true]] },
+					{ [[compress_vertex_texcoord2D_clampTol]], [[.02]] },
+					{ [[vertex_cache_optimization]], [[1]] },
+					{ [[mesh_swap]], [[0]] },
+					{ [[export_sua]], [[0]] },
+					{ [[export_mua]], [[0]] },
+				}
+			},
+			{
+				target = [[bia_data_LuaGen]],
+				params =
+				{
+					{ [[add_connection_file]], [[false]] },
+					{ [[should_generate]], [[false]] },
+					{ [[lua_template_file]], [[entityblueprint.nil]] },
+					{ 'want_compression', '0' },	-- 0 pc,1 xenon
+				}
+			}
+		}
+	},
+	
+	{
+		name = [[Physics Meta Blue Print to Physics Blue Print]],
+		targets =
+		{
+			{
+				target = [[bia_data]],
+				params =  
+				{
+					{ [[generate_destructibleBuilding]], [[false]] },
+				}
+			}
+		}
+	},
+	
+	{
+		name = [[generic-rga to data-rga]],
+		targets =
+		{
+			{
+				target = [[bia_data]],
+				params =
+				{
+					{ 'rga_format', '0' },	-- 0 pc,1 xenon
+					{ 'anim_compression', '2' },
+					{ 'anim_compression_default_tolerance', '3' },  -- bwd compat: anim compression should now occur on rga files
+				}
+			},
+			{
+				target = [[bia_data_low]],
+				params =
+				{
+					{ 'rga_format', '0' },	-- 0 pc,1 xenon
+					{ 'anim_compression', '2' },
+					{ 'anim_compression_default_tolerance', '-100' },  -- bwd compat: anim compression should now occur on rga files
+					{ 'strip_random_node_percent', '75' },
+				}
+			}
+		}
+	},
+
+	{
+		name = [[generic-rgo to data-rgo]],
+		targets =
+		{
+			{
+				target = [[bia_data]],
+				params =
+				{
+					{ 'rgo_format', '0' },	-- 0 pc,1 xenon
+				}
+			},
+			{
+				target = [[bia_data_low]],
+				params =
+				{
+					{ 'rgo_format', '0' },	-- 0 pc,1 xenon
+					{ [[mesh_swap]], [[0]] },
+					{ 'strip_random_node_percent', '75' },
+				}
+			}
+		}
+	},
+
+	{
+		name = [[Splat specular textures]],
+		targets =
+		{
+			{
+				target = [[bia_SplatToRGT]],
+				params = 
+				{
+					{ 'compress_textures', '1' },
+					{ 'enable_alpha_compression', '1' },
+					{ 'preferred_format', '1' },
+					{ 'rescale_np2', '1' },
+					{ 'want_mipmaps', '0' },	
+					{ 'tex_sharpen', '0' },
+					{ 'alpha_edge', '0' },					
+					{ 'black_border', '0' },
+					{ 'rgt_format', '0' }
+				}
+			}
+		}
+	},	
+	{
+		name = [[Splat textures]],
+		targets =
+		{
+			{
+				target = [[bia_SplatToRGT]],
+				params = 
+				{
+					{ 'compress_textures', '1' },
+					{ 'enable_alpha_compression', '1' },
+					{ 'preferred_format', '5' },
+					{ 'rescale_np2', '1' },
+					{ 'want_mipmaps', '0' },	
+					{ 'tex_sharpen', '0' },
+					{ 'alpha_edge', '0' },					
+					{ 'black_border', '0' },
+					{ 'rgt_format', '0' }
+				}
+			},
+			{
+				target = [[bia_SplatTMM]],
+				params =  
+				{
+					{ [[bits per pixel]],  [[1]] },
+					{ [[reduce factor]],   [[8]] },
+					{ [[alpha threshold]], [[50]] }
+				}
+			}
+		}
+	},
+	
+	{
+		name = [[Tile textures]],
+		targets =
+		{
+			{
+				target = [[bia_SplatToRGT]],
+				params = 
+				{
+					{ 'compress_textures', '1' },
+					{ 'enable_alpha_compression', '1' },
+					{ 'preferred_format', '1' },
+					{ 'rescale_np2', '1' },
+					{ 'want_mipmaps', '0' },
+					{ 'alpha_edge', '0' },
+					{ 'tex_sharpen', '0' },
+					{ 'black_border', '0' },
+					{ 'rgt_format', '0' }
+				}
+			}
+		}
+	},
+	
+	{
+		name = [[generic-image to data-rgt]],
+		targets =
+		{
+			{
+				target = [[bia_data]],
+				params = {
+					{ 'compress_textures', '1' },
+					{ 'enable_alpha_compression', '1' },
+					{ 'preferred_format', '0' },
+					{ 'rescale_np2', '1' },
+					{ 'want_mipmaps', '0' },
+					{ 'alpha_edge', '0' },
+					{ 'tex_sharpen', '0' },
+					{ 'black_border', '0' },
+					{ 'rgt_format', '0' }
+				}
+			}
+		}
+	},
+	
+	{
+		name = [[UI Maps]],
+		targets =
+		{
+			{
+				target = [[bia_data]],
+				params = {
+					{ 'compress_textures', '1' },
+					{ 'enable_alpha_compression', '1' },
+					{ 'preferred_format', '5' },
+					{ 'rescale_np2', '0' },
+					{ 'want_mipmaps', '2' },
+					{ 'alpha_edge', '0' },
+					{ 'tex_sharpen', '0' },
+					{ 'black_border', '0' },
+					{ 'rgt_format', '0' }
+				}
+			}
+		}
+	},
+
+	{
+		name = [[UI Textures]],
+		targets =
+		{
+			{
+				target = [[bia_data]],
+				params = {
+					{ 'compress_textures', '1' },
+					{ 'enable_alpha_compression', '1' },
+					{ 'preferred_format', '5' },
+					{ 'rescale_np2', '0' },
+					{ 'want_mipmaps', '2' },
+					{ 'alpha_edge', '0' },
+					{ 'tex_sharpen', '0' },
+					{ 'black_border', '0' },
+					{ 'rgt_format', '0' }
+				}
+			}
+		}
+	},
+	
+	{
+		name = [[generic-bua to data-rgt]],
+		targets =
+		{
+			{
+				target = [[bia_data]],
+				params = {
+					{ 'compress_textures', '1' },
+					{ 'enable_alpha_compression', '1' },
+					{ 'preferred_format', '0' },
+					{ 'rescale_np2', '1' },
+					{ 'want_mipmaps', '1' },
+					{ 'alpha_edge', '0' },
+					{ 'tex_sharpen', '0' },
+					{ 'black_border', '0' },
+					{ 'rgt_format', '0' }
+				}
+			}
+		}
+	},
+	
+	{
+		name = [[STC to LUA]],
+		targets =
+		{
+			{
+				target = [[bia_data]],
+				params = {
+				}
+			}
+		}
+	},
+	
+	{
+		name = [[generic-fx to data-bfx]],
+		targets =
+		{
+			{
+				target = [[bia_data]],
+				params = {
+				}
+			}
+		}
+	},
+
+	{
+		name = [[shark container scripts]],
+		targets =
+		{
+			{
+				target = [[bia_data]],
+				params = {
+				}
+			},
+		}
+	},
+}
